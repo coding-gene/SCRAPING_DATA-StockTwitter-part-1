@@ -1,0 +1,246 @@
+2021-12-21 08:46:07 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:46:07 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 17, in <module>
+    twitter = ScrapeTwitterData(envVar.get('twitter'))
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 7, in __init__
+    self.APIKey = env.get('APIKey')
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-12-21 08:46:07 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 08:47:00 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:47:00 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 17, in <module>
+    twitter = ScrapeTwitterData(envVar.get('twitter'))
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 7, in __init__
+    self.APIKey = env.get('APIKey')
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-12-21 08:47:00 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 08:47:18 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:47:18 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 17, in <module>
+    twitter = ScrapeTwitterData(envVar.get('twitter'))
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 7, in __init__
+    self.APIKey = env.get('APIKey')
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-12-21 08:47:18 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 08:47:59 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:47:59 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 17, in <module>
+    twitter = ScrapeTwitterData(envVar.get('twitter'))
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 7, in __init__
+    self.APIKey = env.get('APIKey')
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-12-21 08:47:59 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 08:48:07 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:48:07 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 17, in <module>
+    twitter = ScrapeTwitterData(envVar.get('twitter'))
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 7, in __init__
+    self.APIKey = env.get('APIKey')
+AttributeError: 'NoneType' object has no attribute 'get'
+2021-12-21 08:48:07 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 08:48:58 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:48:58 INFO     Uspješno izvršen zadatak.
+2021-12-21 08:48:58 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 08:49:27 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 08:49:27 INFO     Uspješno izvršen zadatak.
+2021-12-21 08:49:27 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:35:55 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:35:55 WARNING  Unexpected parameter: id
+2021-12-21 09:35:56 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 23, in get_twitter_posts
+    for tweet in posts:
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 286, in next
+    self.current_page = next(self.page_iterator)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 167, in next
+    data = self.method(max_id=self.max_id, parser=RawParser(), *self.args, **self.kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 33, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 571, in user_timeline
+    return self.request(
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 259, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+2021-12-21 09:35:56 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:36:27 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:36:27 INFO     Uspješno izvršen zadatak.
+2021-12-21 09:36:27 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:36:52 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:36:52 WARNING  Unexpected parameter: id
+2021-12-21 09:36:53 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 24, in get_twitter_posts
+    for tweet in posts:
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 286, in next
+    self.current_page = next(self.page_iterator)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 167, in next
+    data = self.method(max_id=self.max_id, parser=RawParser(), *self.args, **self.kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 33, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 571, in user_timeline
+    return self.request(
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 259, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+2021-12-21 09:36:53 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:39:43 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:39:43 INFO     Uspješno izvršen zadatak.
+2021-12-21 09:39:43 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:40:18 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:40:18 INFO     Uspješno izvršen zadatak.
+2021-12-21 09:40:18 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:40:27 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:40:27 WARNING  Unexpected parameter: id
+2021-12-21 09:40:27 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 23, in get_twitter_posts
+    for tweet in posts:
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 286, in next
+    self.current_page = next(self.page_iterator)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 167, in next
+    data = self.method(max_id=self.max_id, parser=RawParser(), *self.args, **self.kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 33, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 571, in user_timeline
+    return self.request(
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 259, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+2021-12-21 09:40:27 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:40:55 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:40:55 WARNING  Unexpected parameter: id
+2021-12-21 09:40:56 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 23, in get_twitter_posts
+    for tweet in posts:
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 286, in next
+    self.current_page = next(self.page_iterator)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 167, in next
+    data = self.method(max_id=self.max_id, parser=RawParser(), *self.args, **self.kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 33, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 571, in user_timeline
+    return self.request(
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 259, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+2021-12-21 09:40:56 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:43:29 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:43:30 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 23, in get_twitter_posts
+    for tweet in posts:
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 286, in next
+    self.current_page = next(self.page_iterator)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 86, in __next__
+    return self.next()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\cursor.py", line 167, in next
+    data = self.method(max_id=self.max_id, parser=RawParser(), *self.args, **self.kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 33, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 1268, in search_tweets
+    return self.request(
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 259, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+2021-12-21 09:43:30 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:44:03 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:44:03 INFO     Uspješno izvršen zadatak.
+2021-12-21 09:44:03 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:44:22 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:44:22 INFO     Uspješno izvršen zadatak.
+2021-12-21 09:44:22 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:48:17 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:48:18 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 23, in get_twitter_posts
+    timeline_tweets = self.api.home_timeline()
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 33, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 46, in wrapper
+    return method(*args, **kwargs)
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 488, in home_timeline
+    return self.request(
+  File "C:\Users\Ivan\.virtualenvs\twitterSentimentAnalysis-a0U5MjX1\lib\site-packages\tweepy\api.py", line 259, in request
+    raise Forbidden(resp)
+tweepy.errors.Forbidden: 403 Forbidden
+453 - You currently have Essential access which includes access to Twitter API v2 endpoints only. If you need access to this endpoint, you’ll need to apply for Elevated access via the Developer Portal. You can learn more here: https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api#v2-access-leve
+2021-12-21 09:48:18 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-21 09:55:57 INFO     Poèetak izvršavanja zadatka.
+2021-12-21 09:55:57 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 19, in <module>
+    test = twitter.get_twitter_posts()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\twitterScrape.py", line 23, in get_twitter_posts
+    for tweet in tweepy.Cursor(self.api.search, q='#bmw', rpp=100).items(10):
+AttributeError: 'API' object has no attribute 'search'
+2021-12-21 09:55:57 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
