@@ -363,3 +363,29 @@ tweepy.errors.Forbidden: 403 Forbidden
 2021-12-22 10:50:20 INFO     Uspješno izvršen zadatak.
 2021-12-22 10:50:20 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
 
+2021-12-22 11:02:40 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 11:02:40 ERROR    Dogodila se greška sljedeæeg sadržaja:
+Traceback (most recent call last):
+  File "C:/Users/Ivan/PycharmProjects/twitterSentimentAnalysis/main.py", line 16, in <module>
+    envVar = get_environment_variables()
+  File "C:\Users\Ivan\PycharmProjects\twitterSentimentAnalysis\logic\config.py", line 6, in get_environment_variables
+    env_var_value = json.load(content)
+  File "c:\users\ivan\appdata\local\programs\python\python38\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "c:\users\ivan\appdata\local\programs\python\python38\lib\json\__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "c:\users\ivan\appdata\local\programs\python\python38\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "c:\users\ivan\appdata\local\programs\python\python38\lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 9 column 9 (char 187)
+2021-12-22 11:02:40 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 11:03:50 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 11:03:51 INFO     Uspješno izvršen zadatak.
+2021-12-22 11:03:51 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 14:36:00 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 14:36:00 INFO     Uspješno izvršen zadatak.
+2021-12-22 14:36:00 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+

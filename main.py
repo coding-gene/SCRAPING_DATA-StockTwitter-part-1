@@ -14,10 +14,10 @@ try:
     logging.info('Početak izvršavanja zadatka.')
 
     envVar = get_environment_variables()
-    twitter = ScrapeTwitterData(envVar.get('twitter'))
+    #twitter = ScrapeTwitterData(envVar.get('twitter'))
 
-    test = twitter.get_twitter_posts()
-    print(test)
+    #test = twitter.get_twitter_posts()
+    #print(test)
 
 
 except Exception:
