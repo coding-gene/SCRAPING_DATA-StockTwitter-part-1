@@ -11,6 +11,7 @@ class ScrapeTwitterData:
         self.APIKeySecret = env.get('APIKeySecret')
         self.AccessToken = env.get('AccessToken')
         self.AccessTokenSecret = env.get('AccessTokenSecret')
+        self.BearerToken = env.get('BearerToken')
         self.__twitter_authentication__()
 
     def __twitter_authentication__(self):
@@ -18,7 +19,25 @@ class ScrapeTwitterData:
         self.auth.set_access_token(self.AccessToken, self.AccessTokenSecret)
         self.api = tweepy.API(self.auth, wait_on_rate_limit=True)
 
+    """
+    def __twitter_authentication__(self):
+        self.client = tweepy.Client(bearer_token=self.BearerToken,
+                                    consumer_key=self.APIKey,
+                                    consumer_secret=self.APIKeySecret,
+                                    access_token=self.AccessToken,
+                                    access_token_secret=self.AccessTokenSecret)
+    """
+
     def get_twitter_posts(self):
-        #posts = tweepy.Cursor(self.api.search_tweets, q='space', lang='eng').items(20)
-        for tweet in tweepy.Cursor(self.api.search, q='#bmw', rpp=100).items(10):
-            return tweet
+        _list_of_tweets = []
+        tweets = tweepy.Cursor(self.api.search_tweets, q='#GameStopstock', lang='en').items(10)
+        for tweet in tweets:
+            _dict = {}
+            try:
+                _dict['Tweets'] = tweet.text
+            except:
+                _dict['Tweets'] = None
+            _list_of_tweets.append(_dict)
+
+        df = pd.DataFrame(_list_of_tweets)
+        return df

@@ -331,3 +331,35 @@ Traceback (most recent call last):
 tweepy.errors.Forbidden: 403 Forbidden
 2021-12-21 18:15:58 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
 
+2021-12-22 10:29:30 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:29:30 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:29:30 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:30:08 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:30:09 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:30:09 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:30:40 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:30:41 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:30:41 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:34:37 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:34:38 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:34:38 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:36:49 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:36:49 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:36:49 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:37:15 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:37:15 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:37:15 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:37:44 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:37:44 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:37:44 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+
+2021-12-22 10:50:20 INFO     Poèetak izvršavanja zadatka.
+2021-12-22 10:50:20 INFO     Uspješno izvršen zadatak.
+2021-12-22 10:50:20 INFO     Obrada trajala: 00 sati, 00 minuta i 00 sekundi.
+

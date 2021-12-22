@@ -6,7 +6,7 @@ import time
 
 try:
     pocetak = time.time()
-    logging.basicConfig(filename='twitterSentimentAnalysisLogs.txt',
+    logging.basicConfig(filename='Logs.txt',
                         filemode='a',
                         format='%(asctime)s %(levelname)-8s %(message)s',
                         level=logging.INFO,
