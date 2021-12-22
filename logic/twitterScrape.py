@@ -39,5 +39,9 @@ class ScrapeTwitterData:
                 _dict['Tweets'] = None
             _list_of_tweets.append(_dict)
 
-        df = pd.DataFrame(_list_of_tweets)
+        return _list_of_tweets
+
+    def get_df(self, tweets):
+        df = pd.DataFrame(tweets)
+
         return df

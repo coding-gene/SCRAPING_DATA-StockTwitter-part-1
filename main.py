@@ -1,4 +1,5 @@
 from logic.twitterScrape import ScrapeTwitterData
+from logic.stockScrape import ScrapeStockData
 from logic.config import get_environment_variables
 import logging
 import time
@@ -15,9 +16,15 @@ try:
 
     envVar = get_environment_variables()
     #twitter = ScrapeTwitterData(envVar.get('twitter'))
-
-    #test = twitter.get_twitter_posts()
-    #print(test)
+    stock = ScrapeStockData(envVar.get('stock'))
+    # Twitter data
+    #twitter_content = twitter.get_twitter_posts()
+    #df_twitter = twitter.get_df(twitter_content)
+    # Stock data
+    stock_content = stock.get_page_content()
+    print(stock_content)
+    df_stock = stock.get_df(stock_content)
+    print(df_stock)
 
 
 except Exception:
