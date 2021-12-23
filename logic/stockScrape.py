@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import time
 
 _stock_list = []
 
@@ -16,18 +17,22 @@ class ScrapeStockData:
         r = requests.get(url=url, headers=headers)
         soup = BeautifulSoup(r.content, 'html.parser')
 
-        stock = \
-            {
-            'price': soup.find('div', {'class': 'D(ib) Mend(20px)'}).
-                find_all('fin-streamer')[0]['value'],
-            'changeNum': soup.find('div', {'class': 'D(ib) Mend(20px)'}).
-                find_all('fin-streamer')[1].
-                find('span', {'class': 'C($negativeColor)'}).text,
-            'changePer': soup.find('div', {'class': 'D(ib) Mend(20px)'}).
-                find_all('fin-streamer')[2].
-                find('span', {'class': 'C($negativeColor)'}).text.replace('%)', '').replace('(', ''),
-            }
-        _stock_list.append(stock)
+        timeout = 600
+        timeout_start = time.time()
+        while time.time() < timeout_start + timeout:
+            stock = \
+                {
+                'price': soup.find('div', {'class': 'D(ib) Mend(20px)'}).
+                    find_all('fin-streamer')[0]['value'],
+                'changeNum': soup.find('div', {'class': 'D(ib) Mend(20px)'}).
+                    find_all('fin-streamer')[1].
+                    find('span', {'class': 'C($negativeColor)'}).text,
+                'changePer': soup.find('div', {'class': 'D(ib) Mend(20px)'}).
+                    find_all('fin-streamer')[2].
+                    find('span', {'class': 'C($negativeColor)'}).text.replace('%)', '').replace('(', ''),
+                }
+            _stock_list.append(stock)
+            time.sleep(2)
 
         return _stock_list
 

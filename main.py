@@ -22,7 +22,7 @@ try:
     #df_twitter = twitter.get_df(twitter_content)
     # Stock data
     stock_content = stock.get_page_content()
-    print(stock_content)
+    #print(stock_content)
     df_stock = stock.get_df(stock_content)
     print(df_stock)
 
