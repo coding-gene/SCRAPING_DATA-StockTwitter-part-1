@@ -4,8 +4,6 @@ from time import time, sleep
 from datetime import datetime
 import sqlite3
 
-_stock_list = []
-
 
 class ScrapeStockData:
 
@@ -31,16 +29,18 @@ class ScrapeStockData:
         r = requests.get(url=url, headers=headers)
         soup = BeautifulSoup(r.content, 'html.parser')
 
-        timeout = 10
-        timeout_start = time()
-        while time() < timeout_start + timeout:
+        #timeout = 10
+        #timeout_start = time()
+        #while time() < timeout_start + timeout:
+
+        while True:
             price = soup.find('div', {'class': 'D(ib) Mend(20px)'}).find('fin-streamer', {'class': 'Fw(b) Fz(36px) Mb(-4px) D(ib)'}).text
             changeNum = soup.find('div', {'class': 'D(ib) Mend(20px)'}).find_all('fin-streamer', {'class': 'Fw(500) Pstart(8px) Fz(24px)'})[0].text
             changePer = soup.find('div', {'class': 'D(ib) Mend(20px)'}).find_all('fin-streamer', {'class': 'Fw(500) Pstart(8px) Fz(24px)'})[1].text.replace('%)', '').replace('(', '')
             self.cursor.execute(
                 "INSERT INTO gme_stock_data (date_time, price, change_number, change_percentage) VALUES (?, ?, ?, ?)", (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), price, changeNum, changePer))
             self.connection.commit()
-            sleep(2)
+            sleep(1)
 
     def closing_connection(self):
         self.connection.close()
