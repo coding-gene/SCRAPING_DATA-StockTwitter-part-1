@@ -1,7 +1,6 @@
 import tweepy
 from textblob import TextBlob
 import pandas as pd
-import numpy as np
 
 
 class ScrapeTwitterData:
@@ -18,15 +17,6 @@ class ScrapeTwitterData:
         self.auth = tweepy.OAuthHandler(self.APIKey, self.APIKeySecret)
         self.auth.set_access_token(self.AccessToken, self.AccessTokenSecret)
         self.api = tweepy.API(self.auth, wait_on_rate_limit=True)
-
-    """
-    def __twitter_authentication__(self):
-        self.client = tweepy.Client(bearer_token=self.BearerToken,
-                                    consumer_key=self.APIKey,
-                                    consumer_secret=self.APIKeySecret,
-                                    access_token=self.AccessToken,
-                                    access_token_secret=self.AccessTokenSecret)
-    """
 
     def get_twitter_posts(self):
         _list_of_tweets = []
