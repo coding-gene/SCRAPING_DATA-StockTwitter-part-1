@@ -21,7 +21,7 @@ class ScrapeTwitterData:
 
     def get_twitter_posts(self):
         _list_of_tweets = []
-        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(20)
+        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(30)
         for tweet in tweets:
             _dict = {}
             # noinspection PyBroadException
@@ -49,5 +49,6 @@ class ScrapeTwitterData:
         df = pd.DataFrame(tweets)
         df['tweet_datetime'] = pd.to_datetime(df.tweet_datetime).dt.tz_localize(None)
         df = df[df.tweet_id != 0]
+        df.drop_duplicates(subset='tweet', keep='first', inplace=True)
         df.reset_index(drop=True, inplace=True)
         return df
