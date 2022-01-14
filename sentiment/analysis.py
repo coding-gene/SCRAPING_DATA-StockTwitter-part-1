@@ -1,4 +1,3 @@
-# noinspection PyUnresolvedReferences
 from textblob import TextBlob
 
 

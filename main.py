@@ -1,13 +1,14 @@
 # https://codeofaninja.com/tools/find-twitter-id/
 # https://blog.jovian.ai/stock-sentiment-analysis-and-summarization-via-web-scraping-6ae9a115c8c8
+from environment.configuration import environment_variables
 from twitter.tweets import ScrapeTwitterData
 from stock.gme import ScrapeStockData
-from environment.configuration import environment_variables
+from sentiment.analysis import TwitterSentimentAnalysis
 import logging
 import time
 import pandas as pd
 
-pd.set_option('display.max_rows', 10)
+pd.set_option('display.max_rows', 40)
 pd.set_option('display.max_columns', 40)
 pd.set_option('display.width', 200)
 
@@ -23,6 +24,7 @@ try:
     eVar = environment_variables()
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
+    sentiment = TwitterSentimentAnalysis()
 
     # Twitter data
     twitter_content = twitter.get_twitter_posts()

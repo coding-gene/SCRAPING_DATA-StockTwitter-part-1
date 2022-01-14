@@ -21,7 +21,7 @@ class ScrapeTwitterData:
 
     def get_twitter_posts(self):
         _list_of_tweets = []
-        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(6)
+        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(20)
         for tweet in tweets:
             _dict = {}
             # noinspection PyBroadException
@@ -32,6 +32,7 @@ class ScrapeTwitterData:
                 _dict['tweet_id'] = tweet.id
                 _dict['author_id'] = tweet.entities['user_mentions'][0]['id']
                 _dict['author_name'] = tweet.entities['user_mentions'][0]['name']
+                _dict['author_screen_name'] = tweet.entities['user_mentions'][0]['screen_name']
             except Exception:
                 _dict['scrape_datetime'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 _dict['tweet'] = None
@@ -39,6 +40,7 @@ class ScrapeTwitterData:
                 _dict['tweet_id'] = 0
                 _dict['author_id'] = 0
                 _dict['author_name'] = None
+                _dict['author_screen_name'] = None
             _list_of_tweets.append(_dict)
         return _list_of_tweets
 
@@ -47,5 +49,5 @@ class ScrapeTwitterData:
         df = pd.DataFrame(tweets)
         df['tweet_datetime'] = pd.to_datetime(df.tweet_datetime).dt.tz_localize(None)
         df = df[df.tweet_id != 0]
-        df.reset_index()
+        df.reset_index(drop=True, inplace=True)
         return df
