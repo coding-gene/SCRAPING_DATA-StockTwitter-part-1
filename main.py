@@ -26,14 +26,12 @@ try:
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
 
-
     # Twitter data
     twitter_content = twitter.get_twitter_posts()
     df_tweets = twitter.get_df(twitter_content, twitter.clean_tweets)
-    # print(df_tweets.tweet)
 
+    # Sentiment analysis
     sentiment = TwitterSentimentAnalysis(df_tweets)
-
     df_final = sentiment.return_final_data(sentiment.subjectivity, sentiment.polarity)
     print(df_final)
 
