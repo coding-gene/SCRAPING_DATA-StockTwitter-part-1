@@ -1,6 +1,7 @@
 import tweepy
 from textblob import TextBlob
 import pandas as pd
+from datetime import datetime
 
 
 class ScrapeTwitterData:
@@ -14,9 +15,9 @@ class ScrapeTwitterData:
         self.__twitter_authentication__()
 
     def __twitter_authentication__(self):
-        self.auth = tweepy.OAuthHandler(self.APIKey, self.APIKeySecret)
-        self.auth.set_access_token(self.AccessToken, self.AccessTokenSecret)
-        self.api = tweepy.API(self.auth, wait_on_rate_limit=True)
+        self.authentication = tweepy.OAuthHandler(self.APIKey, self.APIKeySecret)
+        self.authentication.set_access_token(self.AccessToken, self.AccessTokenSecret)
+        self.api = tweepy.API(self.authentication, wait_on_rate_limit=True)
 
     def get_twitter_posts(self):
         _list_of_tweets = []
@@ -24,8 +25,10 @@ class ScrapeTwitterData:
         for tweet in tweets:
             _dict = {}
             try:
+                _dict['date_time'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 _dict['Tweets'] = tweet.text
             except:
+                _dict['date_time'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 _dict['Tweets'] = None
             _list_of_tweets.append(_dict)
 
