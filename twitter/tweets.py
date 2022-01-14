@@ -70,5 +70,6 @@ class ScrapeTwitterData:
         df.reset_index(drop=True, inplace=True)
 
         df['tweet'] = df['tweet'].apply(func)
+        df['author_name'] = df['author_name'].apply(func)
 
         return df
