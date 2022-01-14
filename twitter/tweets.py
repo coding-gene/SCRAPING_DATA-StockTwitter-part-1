@@ -1,6 +1,8 @@
 import tweepy
 import pandas as pd
 from datetime import datetime
+import re
+import emoji
 
 
 class ScrapeTwitterData:
@@ -21,18 +23,18 @@ class ScrapeTwitterData:
 
     def get_twitter_posts(self):
         _list_of_tweets = []
-        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(30)
+        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(100)
         for tweet in tweets:
             _dict = {}
             # noinspection PyBroadException
             try:
                 _dict['scrape_datetime'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                _dict['tweet'] = tweet.text
+                _dict['tweet'] = tweet.text.lower()
                 _dict['tweet_datetime'] = tweet.created_at
                 _dict['tweet_id'] = tweet.id
                 _dict['author_id'] = tweet.entities['user_mentions'][0]['id']
-                _dict['author_name'] = tweet.entities['user_mentions'][0]['name']
-                _dict['author_screen_name'] = tweet.entities['user_mentions'][0]['screen_name']
+                _dict['author_name'] = tweet.entities['user_mentions'][0]['name'].lower()
+                _dict['author_screen_name'] = tweet.entities['user_mentions'][0]['screen_name'].lower()
             except Exception:
                 _dict['scrape_datetime'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 _dict['tweet'] = None
@@ -45,10 +47,28 @@ class ScrapeTwitterData:
         return _list_of_tweets
 
     @staticmethod
-    def get_df(tweets):
+    def clean_tweets(tweet):
+        tweet = re.sub(r'@[A-Za-z0-9_]+', '', tweet)  # mentions
+        tweet = re.sub(r'#', '', tweet)  # hashtags r'#[A-Za-z0-9_]+'
+        tweet = re.sub(r'http\S+', '', tweet)  # links
+        tweet = re.sub(r'www.\S+', '', tweet)  # links
+        tweet = re.sub(r'[()!?]', ' ', tweet)  # punctuations
+        tweet = re.sub(r'\[.*?\]', ' ', tweet)  # punctuations
+        tweet = re.sub(r'[^a-z0-9]', ' ', tweet)  # non-alphanumeric characters
+        tweet = re.sub(r'rt[\s]+', '', tweet)  # rt
+        tweet = re.sub(' +', ' ', tweet)  # multiple spaces
+        tweet = ''.join(c for c in tweet if c not in emoji.UNICODE_EMOJI)  # emoji
+        tweet = tweet.strip()  # strip
+        return tweet
+
+    @staticmethod
+    def get_df(tweets, func):
         df = pd.DataFrame(tweets)
         df['tweet_datetime'] = pd.to_datetime(df.tweet_datetime).dt.tz_localize(None)
         df = df[df.tweet_id != 0]
         df.drop_duplicates(subset='tweet', keep='first', inplace=True)
         df.reset_index(drop=True, inplace=True)
+
+        df['tweet'] = df['tweet'].apply(func)
+
         return df

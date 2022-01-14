@@ -11,6 +11,7 @@ import pandas as pd
 pd.set_option('display.max_rows', 40)
 pd.set_option('display.max_columns', 40)
 pd.set_option('display.width', 200)
+pd.set_option('display.max_colwidth', 300)
 
 start_time = time.time()
 logging.basicConfig(filename='logs.txt',
@@ -24,12 +25,17 @@ try:
     eVar = environment_variables()
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
-    sentiment = TwitterSentimentAnalysis()
+
 
     # Twitter data
     twitter_content = twitter.get_twitter_posts()
-    df_tweets = twitter.get_df(twitter_content)
-    print(df_tweets)
+    df_tweets = twitter.get_df(twitter_content, twitter.clean_tweets)
+    # print(df_tweets.tweet)
+
+    sentiment = TwitterSentimentAnalysis(df_tweets)
+
+    df_final = sentiment.return_final_data(sentiment.subjectivity, sentiment.polarity)
+    print(df_final)
 
     # Stock data
     # stock_content = stock.save_page_content()

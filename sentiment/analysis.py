@@ -3,8 +3,18 @@ from textblob import TextBlob
 
 class TwitterSentimentAnalysis:
 
-    def __init__(self):
-        self.test = 'test'
+    def __init__(self, data):
+        self.df = data
 
-    def zagreb(self):
-        return self.test
+    @staticmethod
+    def subjectivity(tweet):
+        return TextBlob(tweet).sentiment.subjectivity
+
+    @staticmethod
+    def polarity(tweet):
+        return TextBlob(tweet).sentiment.polarity
+
+    def return_final_data(self, subj, pola):
+        self.df['subjectivity'] = self.df['tweet'].apply(subj)
+        self.df['polarity'] = self.df['tweet'].apply(pola)
+        return self.df
