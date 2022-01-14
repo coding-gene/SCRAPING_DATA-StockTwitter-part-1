@@ -1,8 +1,15 @@
+# https://codeofaninja.com/tools/find-twitter-id/
+# https://blog.jovian.ai/stock-sentiment-analysis-and-summarization-via-web-scraping-6ae9a115c8c8
 from twitter.tweets import ScrapeTwitterData
 from stock.gme import ScrapeStockData
 from environment.configuration import environment_variables
 import logging
 import time
+import pandas as pd
+
+pd.set_option('display.max_rows', 10)
+pd.set_option('display.max_columns', 40)
+pd.set_option('display.width', 200)
 
 start_time = time.time()
 logging.basicConfig(filename='logs.txt',
@@ -19,8 +26,8 @@ try:
 
     # Twitter data
     twitter_content = twitter.get_twitter_posts()
-    df_twitter = twitter.get_df(twitter_content)
-    print(df_twitter)
+    df_tweets = twitter.get_df(twitter_content)
+    print(df_tweets)
 
     # Stock data
     # stock_content = stock.save_page_content()
