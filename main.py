@@ -1,6 +1,6 @@
 # https://codeofaninja.com/tools/find-twitter-id/
 # https://blog.jovian.ai/stock-sentiment-analysis-and-summarization-via-web-scraping-6ae9a115c8c8
-from environment.configuration import environment_variables
+from configuration.environment import environment_variables
 from twitter.tweets import ScrapeTwitterData
 from stock.gme import ScrapeStockData
 from sentiment.analysis import TwitterSentimentAnalysis
