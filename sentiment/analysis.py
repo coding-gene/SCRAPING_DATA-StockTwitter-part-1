@@ -47,16 +47,18 @@ class TwitterSentimentAnalysis:
         self.df['subjectivity'] = self.df['tweet'].apply(subj)
         self.df['polarity'] = self.df['tweet'].apply(pola)
         self.df['sentiment'] = self.df['polarity'].apply(sent)
+        self.df.subjectivity = self.df.subjectivity.round(1)
+        self.df.polarity = self.df.polarity.round(1)
         self.df = self.df.applymap(str)
 
         #  todo: postaviti df filter da uzima samo najsvjeziji tweet
 
         for index, row in self.df.iterrows():
             self.cursor.execute(
-                "INSERT OR IGNORE INTO tweet_sentiment_analysis ("
-                "scrape_datetime, tweet, tweet_datetime, tweet_id, author_id, author_name, "
-                "author_screen_name, subjectivity, polarity, sentiment)"
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
+                """INSERT OR IGNORE INTO tweet_sentiment_analysis (
+                scrape_datetime, tweet, tweet_datetime, tweet_id, author_id, author_name,
+                author_screen_name, subjectivity, polarity, sentiment)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", (
                     row.scrape_datetime,
                     row.tweet,
                     row.tweet_datetime,
@@ -66,7 +68,7 @@ class TwitterSentimentAnalysis:
                     row.author_screen_name,
                     row.subjectivity,
                     row.polarity,
-                    row.sentiment))
+                    row.sentiment, ))
             self.connection.commit()
 
     def closing_connection(self):

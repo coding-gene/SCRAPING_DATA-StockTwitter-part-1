@@ -26,11 +26,13 @@ try:
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
 
-    timeout = 120
-    timeout_start = time.time()
-    while time.time() < timeout_start + timeout:
-        # Stock data
-        #  stock_content = stock.save_page_content()
+    #  specify time of loop working or infinite while loop
+    #  timeout = 20
+    #  timeout_start = time.time()
+    #  while time.time() < timeout_start + timeout:
+    while True:
+        #  Stock data
+        stock_content = stock.save_page_content()
 
         # Twitter data
         twitter_content = twitter.get_twitter_posts()
@@ -39,9 +41,9 @@ try:
         # Sentiment analysis
         sentiment = TwitterSentimentAnalysis(df_tweets)
         df_final = sentiment.return_final_data(
-                                    sentiment.subjectivity,
-                                    sentiment.polarity,
-                                    sentiment.sentiment)
+            sentiment.subjectivity,
+            sentiment.polarity,
+            sentiment.sentiment)
         time.sleep(5)
 except Exception:
     logging.exception('An error occurred during job performing:')

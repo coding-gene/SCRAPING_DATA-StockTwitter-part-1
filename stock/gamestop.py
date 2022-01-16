@@ -37,8 +37,8 @@ class ScrapeStockData:
             replace('(', '')
 
         self.cursor.execute(
-            "INSERT INTO gme_stock_data (date_time, price, change_number, change_percentage) "
-            "VALUES (?, ?, ?, ?)", (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), price, changeNum, changePer))
+            """INSERT INTO gme_stock_data (date_time, price, change_number, change_percentage)
+            VALUES (?, ?, ?, ?)""", (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), price, changeNum, changePer))
         self.connection.commit()
 
     def closing_connection(self):
