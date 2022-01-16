@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from time import sleep
 from datetime import datetime
 import sqlite3
 
@@ -28,10 +27,6 @@ class ScrapeStockData:
         headers = {'Cache-Control': 'no-cache'}
         r = requests.get(url=url, headers=headers)
         soup = BeautifulSoup(r.content, 'html.parser')
-
-        # timeout = 10
-        # timeout_start = time()
-        # while time() < timeout_start + timeout:
 
         price = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
             find('fin-streamer', {'class': 'Fw(b) Fz(36px) Mb(-4px) D(ib)'}).text

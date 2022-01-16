@@ -16,7 +16,7 @@ class TwitterSentimentAnalysis:
             (scrape_datetime TEXT NOT NULL,
             tweet TEXT NOT NULL,
             tweet_datetime TEXT NOT NULL,
-            tweet_id TEXT NOT NULL,
+            tweet_id TEXT NOT NULL PRIMARY KEY,
             author_id TEXT NOT NULL,
             author_name TEXT NOT NULL,
             author_screen_name TEXT NOT NULL,
@@ -53,7 +53,7 @@ class TwitterSentimentAnalysis:
 
         for index, row in self.df.iterrows():
             self.cursor.execute(
-                "INSERT INTO tweet_sentiment_analysis ("
+                "INSERT OR IGNORE INTO tweet_sentiment_analysis ("
                 "scrape_datetime, tweet, tweet_datetime, tweet_id, author_id, author_name, "
                 "author_screen_name, subjectivity, polarity, sentiment)"
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (
@@ -68,3 +68,9 @@ class TwitterSentimentAnalysis:
                     row.polarity,
                     row.sentiment))
             self.connection.commit()
+
+    def closing_connection(self):
+        self.connection.close()
+
+    def rollback_connection(self):
+        self.connection.rollback()

@@ -26,7 +26,7 @@ try:
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
 
-    timeout = 20
+    timeout = 120
     timeout_start = time.time()
     while time.time() < timeout_start + timeout:
         # Stock data
@@ -46,9 +46,10 @@ try:
 except Exception:
     logging.exception('An error occurred during job performing:')
     stock.rollback_connection()
-else:
-    logging.info('Job ended.')
+    sentiment.rollback_connection()
 finally:
+    logging.info('Job ended.')
     stock.closing_connection()
+    sentiment.closing_connection()
     logging.info(
         f'Job duration: {time.strftime("%H hours, %M minutes, %S seconds.", time.gmtime(time.time() - start_time))}\n')
