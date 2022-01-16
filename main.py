@@ -26,11 +26,11 @@ try:
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
 
-    timeout = 120
+    timeout = 20
     timeout_start = time.time()
     while time.time() < timeout_start + timeout:
         # Stock data
-        stock_content = stock.save_page_content()
+        #  stock_content = stock.save_page_content()
 
         # Twitter data
         twitter_content = twitter.get_twitter_posts()
