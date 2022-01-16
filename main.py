@@ -2,7 +2,7 @@
 # https://blog.jovian.ai/stock-sentiment-analysis-and-summarization-via-web-scraping-6ae9a115c8c8
 from configuration.environment import environment_variables
 from twitter.tweets import ScrapeTwitterData
-from stock.gme import ScrapeStockData
+from stock.gamestop import ScrapeStockData
 from sentiment.analysis import TwitterSentimentAnalysis
 import logging
 import time
@@ -26,17 +26,23 @@ try:
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
 
-    # Twitter data
-    twitter_content = twitter.get_twitter_posts()
-    df_tweets = twitter.get_df(twitter_content, twitter.clean_tweets)
+    timeout = 120
+    timeout_start = time.time()
+    while time.time() < timeout_start + timeout:
+        # Stock data
+        stock_content = stock.save_page_content()
 
-    # Sentiment analysis
-    sentiment = TwitterSentimentAnalysis(df_tweets)
-    df_final = sentiment.return_final_data(sentiment.subjectivity, sentiment.polarity)
-    print(df_final)
+        # Twitter data
+        twitter_content = twitter.get_twitter_posts()
+        df_tweets = twitter.get_df(twitter_content, twitter.clean_tweets)
 
-    # Stock data
-    # stock_content = stock.save_page_content()
+        # Sentiment analysis
+        sentiment = TwitterSentimentAnalysis(df_tweets)
+        df_final = sentiment.return_final_data(
+                                    sentiment.subjectivity,
+                                    sentiment.polarity,
+                                    sentiment.sentiment)
+        time.sleep(5)
 except Exception:
     logging.exception('An error occurred during job performing:')
     stock.rollback_connection()

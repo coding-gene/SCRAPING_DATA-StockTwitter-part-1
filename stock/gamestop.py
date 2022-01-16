@@ -33,20 +33,18 @@ class ScrapeStockData:
         # timeout_start = time()
         # while time() < timeout_start + timeout:
 
-        while True:
-            price = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
-                find('fin-streamer', {'class': 'Fw(b) Fz(36px) Mb(-4px) D(ib)'}).text
-            changeNum = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
-                find_all('fin-streamer', {'class': 'Fw(500) Pstart(8px) Fz(24px)'})[0].text
-            changePer = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
-                find_all('fin-streamer', {'class': 'Fw(500) Pstart(8px) Fz(24px)'})[1].text.replace('%)', ''). \
-                replace('(', '')
+        price = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
+            find('fin-streamer', {'class': 'Fw(b) Fz(36px) Mb(-4px) D(ib)'}).text
+        changeNum = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
+            find_all('fin-streamer', {'class': 'Fw(500) Pstart(8px) Fz(24px)'})[0].text
+        changePer = soup.find('div', {'class': 'D(ib) Mend(20px)'}). \
+            find_all('fin-streamer', {'class': 'Fw(500) Pstart(8px) Fz(24px)'})[1].text.replace('%)', ''). \
+            replace('(', '')
 
-            self.cursor.execute(
-                "INSERT INTO gme_stock_data (date_time, price, change_number, change_percentage) "
-                "VALUES (?, ?, ?, ?)", (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), price, changeNum, changePer))
-            self.connection.commit()
-            sleep(1)
+        self.cursor.execute(
+            "INSERT INTO gme_stock_data (date_time, price, change_number, change_percentage) "
+            "VALUES (?, ?, ?, ?)", (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), price, changeNum, changePer))
+        self.connection.commit()
 
     def closing_connection(self):
         self.connection.close()

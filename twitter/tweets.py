@@ -23,7 +23,7 @@ class ScrapeTwitterData:
 
     def get_twitter_posts(self):
         _list_of_tweets = []
-        tweets = tweepy.Cursor(self.api.search_tweets, q='#gmestock', type='recent', lang='en').items(100)
+        tweets = tweepy.Cursor(self.api.search_tweets, q='gmestock', type='recent', lang='en').items(20)
         for tweet in tweets:
             _dict = {}
             # noinspection PyBroadException
@@ -58,7 +58,7 @@ class ScrapeTwitterData:
         tweet = re.sub(r'rt[\s]+', '', tweet)  # rt
         tweet = re.sub(' +', ' ', tweet)  # multiple spaces
         tweet = ''.join(c for c in tweet if c not in emoji.UNICODE_EMOJI)  # emoji
-        tweet = tweet.strip()  # strip
+        tweet = tweet.strip()  # strip spaces
         return tweet
 
     @staticmethod
