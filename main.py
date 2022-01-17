@@ -26,7 +26,7 @@ try:
     twitter = ScrapeTwitterData(eVar.get('twitter'))
     stock = ScrapeStockData(eVar.get('stock'))
 
-    #  specify time of loop working or infinite while loop
+    #  specify time of loop working or take infinite while loop
     #  timeout = 20
     #  timeout_start = time.time()
     #  while time.time() < timeout_start + timeout:
