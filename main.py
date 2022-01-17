@@ -1,17 +1,9 @@
-# https://codeofaninja.com/tools/find-twitter-id/
-# https://blog.jovian.ai/stock-sentiment-analysis-and-summarization-via-web-scraping-6ae9a115c8c8
 from configuration.environment import environment_variables
 from twitter.tweets import ScrapeTwitterData
 from stock.gamestop import ScrapeStockData
 from sentiment.analysis import TwitterSentimentAnalysis
 import logging
 import time
-import pandas as pd
-
-pd.set_option('display.max_rows', 40)
-pd.set_option('display.max_columns', 40)
-pd.set_option('display.width', 200)
-pd.set_option('display.max_colwidth', 300)
 
 start_time = time.time()
 logging.basicConfig(filename='logs.txt',
@@ -20,6 +12,7 @@ logging.basicConfig(filename='logs.txt',
                     level=logging.INFO,
                     datefmt='%Y-%m-%d %H:%M:%S')
 logging.info('Job started.')
+
 # noinspection PyBroadException
 try:
     eVar = environment_variables()
